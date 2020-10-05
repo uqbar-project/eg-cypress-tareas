@@ -1,0 +1,9 @@
+{
+    "baseUrl":"https://rappi.com.ar",
+    "ignoreTestFiles":"**/examples/*",
+    "testFiles":[
+        "**/rappi/*"
+    ],
+    "chromeWebSecurity": false
+
+}
