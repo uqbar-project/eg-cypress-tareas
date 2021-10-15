@@ -1,9 +1,8 @@
 {
-    "baseUrl":"https://rappi.com.ar",
+    "baseUrl":"http://localhost:4200/",
     "ignoreTestFiles":"**/examples/*",
     "testFiles":[
-        "**/rappi/*"
+        "**/e2e/*"
     ],
     "chromeWebSecurity": false
-
 }

@@ -1,0 +1,42 @@
+<div>
+    <h4>Agregar Tareas</h4>
+
+    <form>
+        <div class="row">
+            <input [(ngModel)]="descripcionTarea" name="descripcionTarea" data-testid="descripcionTarea"
+                class="col-md-9" type="text" placeholder="Descripcion de la tarea">
+
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-indigo" (click)="agregarTarea()" data-testid="agregarTarea">
+                    <i class="fa fa-plus mr-1"></i>
+                </button>
+            </div>
+        </div>
+
+        <label *ngIf="errorMessage" class="alert alert-danger">
+            {{errorMessage}}
+        </label>
+    </form>
+
+    <br>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descripcion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tarea of tareas" [routerLink]="['/editarTarea', tarea.id]">
+                <td>
+                    {{tarea.id}}
+                </td>
+                <td [attr.data-testid]="'desc' + tarea.id">
+                    {{tarea.descripcion}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
