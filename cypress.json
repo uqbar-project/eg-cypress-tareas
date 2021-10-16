@@ -2,7 +2,8 @@
     "baseUrl":"http://localhost:4200/",
     "ignoreTestFiles":"**/examples/*",
     "testFiles":[
-        "**/e2e/*"
+        "**/e2e/*",
+        "**/introduccion/*"
     ],
     "chromeWebSecurity": false
 }
