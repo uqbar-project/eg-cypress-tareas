@@ -10,7 +10,7 @@ describe('Pantalla de Lista de Tareas', () => {
   const getBotonAgregarTarea = () => getByDataTestId('agregarTarea')
 
   describe('Al intentar agregar una tarea', () => {
-    it('Si se ingresa una descripcion, ', () => {
+    it('Si se ingresa una descripcion, el sistema lo agrega a la lista', () => {
       getInputDescripcionDeTarea().type('Nueva tarea')
       getBotonAgregarTarea().click()
 
