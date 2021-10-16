@@ -9,7 +9,7 @@ describe('Pantalla de Lista de Tareas', () => {
   const getInputDescripcionDeTarea = () => getByDataTestId('descripcionTarea')
   const getBotonAgregarTarea = () => getByDataTestId('agregarTarea')
 
-  describe('Al intentar agregar una tarea', () => {
+  describe('Cuando se intenta agregar una tarea', () => {
     it('Si se ingresa una descripcion, el sistema lo agrega a la lista', () => {
       getInputDescripcionDeTarea().type('Nueva tarea')
       getBotonAgregarTarea().click()
@@ -24,6 +24,19 @@ describe('Pantalla de Lista de Tareas', () => {
       getByDataTestId('errorMessage')
     })
 
+    describe('Cuando se crea una tarea correctamente', () => {
+      beforeEach(() => {
+        // Crear tarea 1
+        getInputDescripcionDeTarea().type('Tarea 1')
+        getBotonAgregarTarea().click()
+      })
+
+      it('Si se hace click en una tarea, el sistema nos redirige a la pantalla de edicion de esa tarea', () => {
+        getByDataTestId('tableRowId').click()
+        cy.location('href').should('include', '/editarTarea/1')
+      });
+    })
+
     describe('Cuando se agregan dos tareas correctamente', () => {
       beforeEach(() => {
         // Crear tarea 1
@@ -33,7 +46,7 @@ describe('Pantalla de Lista de Tareas', () => {
         //Crear tarea 2
         getInputDescripcionDeTarea().type('Tarea 2')
         getBotonAgregarTarea().click()
-      });
+      })
 
       it('El ID aumenta de forma incremental', () => {
         getByDataTestId('tableRowId').each((item, index) => {
