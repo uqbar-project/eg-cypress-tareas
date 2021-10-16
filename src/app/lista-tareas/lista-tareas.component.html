@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <label *ngIf="errorMessage" class="alert alert-danger">
+        <label data-testid="errorMessage" *ngIf="errorMessage" class="alert alert-danger">
             {{errorMessage}}
         </label>
     </form>
@@ -29,10 +29,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let tarea of tareas" [routerLink]="['/editarTarea', tarea.id]">
-                <td>
+                <td data-testid="tableRowId">
                     {{tarea.id}}
                 </td>
-                <td [attr.data-testid]="'desc' + tarea.id">
+                <td data-testid="tableRowDesc">
                     {{tarea.descripcion}}
                 </td>
             </tr>
