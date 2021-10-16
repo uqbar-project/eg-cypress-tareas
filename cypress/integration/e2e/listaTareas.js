@@ -2,7 +2,7 @@
 import { getByDataTestId } from "../utils"
 
 describe('Pantalla de Lista de Tareas', () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit('/')
   })
 
