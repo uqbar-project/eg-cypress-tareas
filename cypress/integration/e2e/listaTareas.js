@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 import { getByDataTestId } from "../utils"
 
-describe('Pantalla de Lista de Tareas', () => {
+describe('Lista de Tareas - Test Suite', () => {
   beforeEach(() => {
     cy.visit('/')
   })

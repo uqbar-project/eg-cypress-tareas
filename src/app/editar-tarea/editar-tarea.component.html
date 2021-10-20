@@ -8,7 +8,7 @@
     </div>
     <!--Text-->
     <div class="card-body">
-        <label *ngIf="errorMessage" class="alert alert-danger">
+        <label *ngIf="errorMessage" class="alert alert-danger" data-testid="errorMessage">
             {{errorMessage}}
         </label>
         <div class="md-form">
