@@ -24,7 +24,7 @@
 
         <div class="md-form">
             <p>Prioridad</p>
-            <select [(ngModel)]="prioridadTarea" class="form-control">
+            <select  [(ngModel)]="prioridadTarea" class="form-control" data-testid="prioridadTarea">
                 <option [ngValue]="undefined">Selecciona una opción</option>
                 <option *ngFor="let prioridad of prioridades" [ngValue]="prioridad">
                     {{prioridad}}

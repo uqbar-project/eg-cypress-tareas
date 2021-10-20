@@ -31,6 +31,10 @@ describe('Lista de Tareas - Test Suite', () => {
         getBotonAgregarTarea().click()
       })
 
+      it('La tarea inicia por defecto con una prioridad media', () => {
+        cy.contains('[data-testid="tableRowPrioridad"]', 'Media')
+      });
+
       it('Si se hace click en una tarea, el sistema nos redirige a la pantalla de edicion de esa tarea', () => {
         getByDataTestId('tableRowId').click()
         cy.location('href').should('include', '/editarTarea/1')

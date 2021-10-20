@@ -30,20 +30,31 @@ describe('Editar Tarea - Test Suite', () => {
       getByDataTestId('errorMessage')
     })
 
-    it('Si se modifica la descripcion pero se cancela la edicion, el sistema no altera la tarea', () => {
+
+    it('Si no se ingresa una prioridad y se intentan confirmar los cambios, el sistema arroja un error', () => {
+      getByDataTestId('prioridadTarea').select('Selecciona una opción')
+      getByDataTestId('aceptar').click()
+
+      getByDataTestId('errorMessage')
+    })
+
+    it('Si se modifica la descripcion y la prioridad pero se cancela la edicion, el sistema no altera la tarea', () => {
       getByDataTestId('descripcionTarea').clear()
       getByDataTestId('descripcionTarea').type('Nueva Descripcion')
+      getByDataTestId('prioridadTarea').select('Alta');
       getByDataTestId('cancelar').click()
 
       cy.contains('[data-testid="tableRowDesc"]', 'Nueva Tarea')
     })
 
-    it('Si se modifica la descripcion y se confirman los cambios, la tarea se actualiza', () => {
+    it('Si se modifica la descripcion y la prioridad y se confirman los cambios, la tarea se actualiza', () => {
       getByDataTestId('descripcionTarea').clear()
       getByDataTestId('descripcionTarea').type('Nueva Descripcion')
+      getByDataTestId('prioridadTarea').select('Alta');
       getByDataTestId('aceptar').click()
 
       cy.contains('[data-testid="tableRowDesc"]', 'Nueva Descripcion')
+      cy.contains('[data-testid="tableRowPrioridad"]', 'Alta')
     })
   })
 })
